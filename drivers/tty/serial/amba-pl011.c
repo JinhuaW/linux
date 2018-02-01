@@ -1585,7 +1585,7 @@ static int pl011_allocate_irq(struct uart_amba_port *uap)
 {
 	writew(uap->im, uap->port.membase + UART011_IMSC);
 
-	return request_irq(uap->port.irq, pl011_int, 0, "uart-pl011", uap);
+	return request_irq(uap->port.irq, pl011_int, IRQF_SHARED, "uart-pl011", uap);
 }
 
 /*
